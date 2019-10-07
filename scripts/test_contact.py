@@ -1,6 +1,7 @@
 import time
 import pytest
 
+
 from base.base_driver import init_driver
 from page.page import Page
 
@@ -15,6 +16,7 @@ class TestContact:
         time.sleep(5)
         self.driver.quit()
 
+    @pytest.allure.severity(pytest.allure.severity_level.BLOCKER)
     @pytest.mark.parametrize(("name", "phone"), [("zhangsan", "18888888888"), ("lisi", "13333333333"), ("wangwu", "17777777777")])
     def test_contact(self, name, phone):
         # 主页 - 点击 新建联系人
